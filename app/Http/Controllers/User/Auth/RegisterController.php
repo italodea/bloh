@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,13 +29,22 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/user';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+    public function showRegistrationForm()
+    {
+        return view('user.auth.register');
+    }
+    protected function guard()
+    {
+        return Auth::guard('user');
+    }
     public function __construct()
     {
         $this->middleware('guest');
