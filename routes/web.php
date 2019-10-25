@@ -1,5 +1,7 @@
 <?php
-
+require 'auth/user.php';
+require 'auth/admin.php';
+require 'auth/mod.php';
 /*
 |--------------------------------------------------------------------------
 | Web Routes
