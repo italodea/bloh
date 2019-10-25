@@ -1,15 +1,22 @@
 <?php
-
 namespace App;
-
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\User\ResetPasswordNotification;
 class User extends Authenticatable
 {
     use Notifiable;
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token){
+        $this->notify(new ResetPasswordNotification($token));
+    }
 
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -28,12 +35,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public $timestamps = false;
+
 }
