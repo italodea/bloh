@@ -73,12 +73,13 @@
 
 </head>
 <body>
+	<?php session_start(); ?>
 	<!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
+  <li><a href="#!"><?php echo $_SESSION["name"]; ?></a></li>
+  <li><a href="#!">Settings</a></li>
   <li class="divider"></li>
-  <li><a href="#!">three</a></li>
+  <li><a href="#!">Exit</a></li>
 </ul>
 <div class="navbar-fixed">
 	<nav class="black">
