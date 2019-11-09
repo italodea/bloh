@@ -20,11 +20,17 @@ if (($varri = verifyData()) == True){
 	$data = mysqli_fetch_array($query);
 	
 	if (mysqli_num_rows($query) == 1) {
-		$_SESSION['id'] = $data['id']
+		$_SESSION['id'] = $data['id'];
+		$_SESSION['name'] = $data['name'];
+		$_SESSION['lastName'] = $data['lastName'];
+		$_SESSION['email'] = $data['id'];
+		header("Location:/index.php");
 	}else{
-		unset ($_SESSION['login']);
-  		unset ($_SESSION['senha']);
-  		header('location:index.php');
+		unset ($_SESSION['id']);
+  		unset ($_SESSION['name']);
+  		unset ($_SESSION['lastName']);
+  		unset ($_SESSION['email']);
+  		echo "email ou senha incorretos";
 	}
 }else{
 	echo "erro!";
