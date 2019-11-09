@@ -1,0 +1,9 @@
+<?php 
+
+	$con = mysqli_connect('ip.address',
+							'user',
+							'password',
+							'schema'
+						);
+
+?>
