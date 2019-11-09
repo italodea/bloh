@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TEste</title>
+	<title>Welcome please login or register</title>
 	<!-- Fonts -->
 	<!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.min.css">
