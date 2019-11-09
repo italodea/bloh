@@ -1,0 +1,26 @@
+{
+  "name": "bloh",
+  "version": "1.0.0",
+  "description": "ainda não sei o que ele é, deve ser um blog",
+  "main": "index.php",
+  "scripts": {
+    "test": "php -S 127.0.0.1:80"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/italodea/bloh.git"
+  },
+  "keywords": [
+    "php"
+  ],
+  "author": "italodea",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/italodea/bloh/issues"
+  },
+  "homepage": "https://github.com/italodea/bloh#readme",
+  "dependencies": {
+    "jquery": "2.1.1",
+    "materialize-css": "^1.0.0"
+  }
+}
