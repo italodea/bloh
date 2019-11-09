@@ -128,7 +128,7 @@
     </div>
     <div class="row">
       <div class="input-field col s10 l10 offset-s1 offset-l1">
-        <input name="password" type="password" class="validate" required="" minlength="8">
+        <input placeholder="" name="password" type="password" class="validate" required="" minlength="8">
         <label for="password">Password</label>
         <span class="helper-text" data-error="min 8 characters" data-success="Ok"></span>
       </div>
@@ -180,7 +180,7 @@
           </div>
           <div class="input-field col s10 l10 offset-s1 offset-l1">
               <input name="password" type="password" class="validate" required="" minlength="8">
-              <label for="password">Password</label>
+              <label placeholder="" for="password">Password</label>
               <span class="helper-text" data-error="min 8 characters" data-success="Ok"></span>
           </div>
     </div>
