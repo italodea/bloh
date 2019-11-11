@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TEste</title>
+	<title>Feed - share with the comunity</title>
 	<!-- Fonts -->
 	<!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.min.css">
@@ -66,6 +66,8 @@
 
         .m-b-md {
             margin-bottom: 30px;
+        }.textarea, textarea{
+        	height: 180px;
         }
     </style>
 
@@ -87,7 +89,7 @@
 	    <a href="#!" class="brand-logo">Logo</a>
 	    <ul class="right hide-on-med-and-down">
 	      <li><a href="sass.html"><i class="far fa-bell"></i></a></li>
-	      <li><a href="badges.html"><i class="fas fa-search"></i></a></li>
+	      <li><a href="#writePost" class="modal-trigger"><i class="fas fa-pen"></i></a></li>
 	      <!-- Dropdown Trigger -->
 	      <!-- <i class="fab fa-buromobelexperte"></i> -->
 	      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="fas fa-th" ></i></a></li>
@@ -213,12 +215,42 @@
 
 
 
+
+
+
+  <!-- Modal Structure -->
+  <div id="writePost" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Write a new post</h4>
+   		<div class="row">
+  			<form class="col s12">
+    			<div class="row">
+      			<div class="input-field col s12 textarea">
+        			<textarea id="textarea1" class="materialize-textarea"></textarea>
+        			<label for="textarea1">Textarea</label>
+      			</div>
+    			</div>
+  			</form>
+			</div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Publish</a>
+    </div>
+  </div>
+
+
+
+
+
+
+
 <script type = "text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script type = "text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(".dropdown-trigger").dropdown();
+		$('.modal').modal();
 	})
 </script>
 
