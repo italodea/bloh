@@ -66,8 +66,8 @@
 
         .m-b-md {
             margin-bottom: 30px;
-        }.textarea, textarea{
-        	height: 180px;
+        }rea, textarea{
+        	height: 220px;
         }
     </style>
 
@@ -75,13 +75,17 @@
 
 </head>
 <body>
-	<?php session_start(); ?>
+	<?php session_start();
+		if (!$_SESSION['id']) {
+			header("Location:/welcome.php");
+		}
+	?>
 	<!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
   <li><a href="#!"><?php echo $_SESSION["name"]; ?></a></li>
   <li><a href="#!">Settings</a></li>
   <li class="divider"></li>
-  <li><a href="#!">Exit</a></li>
+  <li><a href="user/exit.php">Exit</a></li>
 </ul>
 <div class="navbar-fixed">
 	<nav class="black">
@@ -223,19 +227,21 @@
     <div class="modal-content">
       <h4>Write a new post</h4>
    		<div class="row">
-  			<form class="col s12">
+  			<form class="col s12" method="post" action="posts/create.php">
     			<div class="row">
       			<div class="input-field col s12 textarea">
-        			<textarea id="textarea1" class="materialize-textarea"></textarea>
-        			<label for="textarea1">Textarea</label>
+        			<textarea name="contentText" id="textarea1" value="this \n is a <br/> new \r line"></textarea>
       			</div>
     			</div>
-  			</form>
 			</div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Publish</a>
+      <button class="col offset-l4 l3 offset-s1 s6 black btn waves-effect waves-light" type="submit" name="action">
+        Publish
+          <i class="material-icons right">send</i>
+        </button>
     </div>
+    		</form>
   </div>
 
 
