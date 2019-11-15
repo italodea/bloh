@@ -103,34 +103,41 @@
 </div>
 
 <br><br><br>
+<?php
 
+require('etc/connection.php');
+$query = "SELECT DISTINCT(users.id),posts.author, posts.mainContent,posts.likes,posts.comments,posts.created_at,users.name FROM `posts`,`users` WHERE users.id = posts.author AND posts.id = 5";
+$run = mysqli_query($con,$query);
+$resultPost = mysqli_fetch_array($run);
+
+?>
 <div class="row">
 	<div class="col offset-l1 l10 s12">
 		<div class="card z-depth-2">
 			<div class="row">
 				<div class="col l1 s2">
-					<img src="https://robohash.org/jrklje?set=set2" alt="" class="circle responsive-img">
+					<img src='<?php echo "https://robohash.org/".$resultPost['name']."?set=set2" ; ?>' alt="" class="circle responsive-img">
 				</div>
 				<div class="col s10">
-					<h6>Name of the person say</h6>
+					<h6><?php echo $resultPost['name']; ?></h6>
 				</div>
 				<div class="col s10">
-					published at: 18:06pm
+					published at: <?php echo date('d/m/Y H:i',strtotime($resultPost['created_at'])); ?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col offset-m1 offset-s1 offset-l1 l10">
 					<code>
-					$ pip install beautifulsoap
+					<?php echo $resultPost['mainContent']; ?>
 					</code>	
 				</div>
 			</div>
 			<div class="row">
 				<div class="col offset-s1" style="color: black;">
-  					&nbsp;&nbsp;&nbsp;<i class="fas fa-lg fa-heart">12</i>
+  					&nbsp;&nbsp;&nbsp;<i class="fas fa-lg fa-heart"><?php echo $resultPost['likes']; ?></i>
 				</div>
 				<div class="col" style="color: black;">
-  					&nbsp;&nbsp;&nbsp;<i class="fas fa-lg fa-comments">5</i>
+  					&nbsp;&nbsp;&nbsp;<i class="fas fa-lg fa-comments"><?php echo $resultPost['comments']; ?></i>
 				</div>
 			</div>
 		</div>
