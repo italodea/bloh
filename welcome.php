@@ -90,6 +90,11 @@
 
 </head>
 <body>
+  <?php session_start();
+    if (isset($_SESSION['id'])) {
+      header("Location:/");
+    }
+  ?>
 	<!-- <img src="https://ojln9w.bl.files.1drv.com/y4mkI_zV8vfhbDEYtL-ilGSiyxiAVU-Pz10qVUcAnMzn_YFbltDywvoI2G7Nt3jRc238JsQLc8Y72z-lIyQfQhWqYbmKl__IzsYI1RAIAyhha6SGNRuS4O0-cgRHaTFpF37YilGXzKytcTF1i_xbFJpVLG2lqgfgaiD6u7ThCobUVfBJwhzZqDlF9YxLG7Y0Fvm4vb5sb-ZO-yqtBKhjMUCHw?width=1080&height=810&cropmode=none" width="1080" height="810" /> -->
 	<!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
