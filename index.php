@@ -91,6 +91,7 @@
 	<nav class="black">
 	  <div class="nav-wrapper">
 	    <a href="#!" class="brand-logo">Logo</a>
+	    
 	    <ul class="right hide-on-med-and-down">
 	      <li><a href="sass.html"><i class="far fa-bell"></i></a></li>
 	      <li><a href="#writePost" class="modal-trigger"><i class="fas fa-pen"></i></a></li>
@@ -98,17 +99,28 @@
 	      <!-- <i class="fab fa-buromobelexperte"></i> -->
 	      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="fas fa-th" ></i></a></li>
 	    </ul>
+	    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 	  </div>
 	</nav>
+	P2VFTVDEAL
 </div>
-
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="#!"><b><?php echo $_SESSION["name"]; ?></b></a></li>
+    <li><a href="#!">Settings</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li class="divider"></li>
+    <li><a href="user/exit.php">Exit</a></li>
+  </ul>
 <br><br><br>
 <?php
 
 require('etc/connection.php');
-$query = "SELECT DISTINCT(users.id),posts.author, posts.mainContent,posts.likes,posts.comments,posts.created_at,users.name FROM `posts`,`users` WHERE users.id = posts.author AND posts.id = 5";
+$query = "SELECT DISTINCT(users.id),posts.author, posts.mainContent,posts.likes,posts.comments,posts.created_at,users.name FROM `posts`,`users` WHERE users.id = posts.author ORDER BY posts.id DESC;";
 $run = mysqli_query($con,$query);
-$resultPost = mysqli_fetch_array($run);
+
+while ($resultPost=mysqli_fetch_array($run)) {
+	# code...
+
 
 ?>
 <div class="row">
@@ -126,7 +138,7 @@ $resultPost = mysqli_fetch_array($run);
 				</div>
 			</div>
 			<div class="row">
-				<div class="col offset-m1 offset-s1 offset-l1 l10">
+				<div class="col offset-m1 offset-s2 offset-l1 l10" style="background-color: red">
 					<code>
 					<?php echo $resultPost['mainContent']; ?>
 					</code>	
@@ -143,6 +155,8 @@ $resultPost = mysqli_fetch_array($run);
 		</div>
 	</div>
 </div>
+<?php }; ?>
+<!-- 
 <div class="row ">
 	<div class="col offset-l1 l10 s12 ">
 		<div class="card z-depth-2">
@@ -224,7 +238,7 @@ $resultPost = mysqli_fetch_array($run);
 	</div>
 </div>
 
-
+ -->
 
 
 
@@ -260,6 +274,23 @@ $resultPost = mysqli_fetch_array($run);
 <script type = "text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script type = "text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, {
+    edge: 'right',
+    draggable: true,
+    inDuration: 250,
+    outDuration: 200,
+    onOpenStart: null,
+    onOpenEnd: null,
+    onCloseStart: null,
+    onCloseEnd: null,
+    preventScrolling: true
+});
+});
+</script>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(".dropdown-trigger").dropdown();
