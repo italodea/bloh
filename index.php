@@ -81,7 +81,7 @@
 		}
 	?>
 	<!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
+<ul id="menu" class="dropdown-content">
   <li><a href="#!"><?php echo $_SESSION["name"]; ?></a></li>
   <li><a href="#!">Settings</a></li>
   <li class="divider"></li>
@@ -93,11 +93,11 @@
 	    <a href="#!" class="brand-logo">Logo</a>
 	    
 	    <ul class="right hide-on-med-and-down">
-	      <li><a href="sass.html"><i class="far fa-bell"></i></a></li>
-	      <li><a href="#writePost" class="modal-trigger"><i class="fas fa-pen"></i></a></li>
+	      <li><a href="sass.html"><i class="material-icons">notifications_active</i></a></li>
+	      <li><a href="#writePost" class="modal-trigger"><i class="material-icons">edit</i></a></li>
 	      <!-- Dropdown Trigger -->
 	      <!-- <i class="fab fa-buromobelexperte"></i> -->
-	      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="fas fa-th" ></i></a></li>
+	      <li><a class="dropdown-trigger" href="#!" data-target="menu"><i class="fas fa-th" ></i></a></li>
 	    </ul>
 	    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 	  </div>
@@ -115,7 +115,7 @@
 <?php
 
 require('etc/connection.php');
-$query = "SELECT DISTINCT(users.id),posts.author, posts.mainContent,posts.likes,posts.comments,posts.created_at,users.name FROM `posts`,`users` WHERE users.id = posts.author ORDER BY posts.id DESC;";
+$query = "SELECT DISTINCT(users.id),posts.id postId,posts.author, posts.mainContent,posts.likes,posts.comments,posts.created_at,users.name FROM `posts`,`users` WHERE users.id = posts.author ORDER BY posts.id DESC;";
 $run = mysqli_query($con,$query);
 
 while ($resultPost=mysqli_fetch_array($run)) {
@@ -130,8 +130,18 @@ while ($resultPost=mysqli_fetch_array($run)) {
 				<div class="col l1 s2">
 					<img src='<?php echo "https://robohash.org/".$resultPost['name']."?set=set2" ; ?>' alt="" class="circle responsive-img">
 				</div>
-				<div class="col s10">
+				<div class="col s8 l10">
 					<h6><?php echo $resultPost['name']; ?></h6>
+				</div>
+				<div class="col s1 l1">
+				<?php if($resultPost['author'] == $_SESSION['id']){  ?>
+					<a class='dropdown-trigger' href='#' data-target='postOptions<?php echo md5($resultPost['postId'])?>'><i class="material-icons blue-grey-text lighten-1">more_horiz</i></a>
+					<!-- Dropdown Structure -->
+				  <ul id='postOptions<?php echo md5($resultPost['postId'])?>' class='dropdown-content'>
+				    <li><a href="#!" class="black-text">edit</a></li>
+				    <li><a href='<?php echo "/posts/delete.php?id=".$resultPost['postId'];?>' class="red-text">remove</a></li>
+				  </ul>
+				<?php } ?>
 				</div>
 				<div class="col s10">
 					published at: <?php echo date('d/m/Y H:i',strtotime($resultPost['created_at'])); ?>
@@ -146,15 +156,16 @@ while ($resultPost=mysqli_fetch_array($run)) {
 			</div>
 			<div class="row">
 				<div class="col offset-s1" style="color: black;">
-  					&nbsp;&nbsp;&nbsp;<i class="fas fa-lg fa-heart"><?php echo $resultPost['likes']; ?></i>
+  					&nbsp;&nbsp;&nbsp;<i class="material-icons tiny">favorite</i><?php echo $resultPost['likes']; ?>
 				</div>
 				<div class="col" style="color: black;">
-  					&nbsp;&nbsp;&nbsp;<i class="fas fa-lg fa-comments"><?php echo $resultPost['comments']; ?></i>
+  					&nbsp;&nbsp;&nbsp;<i class="material-icons tiny">mode_comment</i><?php echo $resultPost['comments']; ?>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 <?php }; ?>
 <!-- 
 <div class="row ">
