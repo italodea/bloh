@@ -136,12 +136,35 @@ while ($resultPost=mysqli_fetch_array($run)) {
 				<div class="col s1 l1">
 				<?php if($resultPost['author'] == $_SESSION['id']){  ?>
 					<a class='dropdown-trigger' href='#' data-target='postOptions<?php echo md5($resultPost['postId'])?>'><i class="material-icons blue-grey-text lighten-1">more_horiz</i></a>
+					
 					<!-- Dropdown Structure -->
 				  <ul id='postOptions<?php echo md5($resultPost['postId'])?>' class='dropdown-content'>
-				    <li><a href="#!" class="black-text">edit</a></li>
+				    <li><a href='#editPost<?php echo md5($resultPost['postId'])?>' class="modal-trigger black-text">edit</a></li>
 				    <li><a href='<?php echo "/posts/delete.php?id=".$resultPost['postId'];?>' class="red-text">remove</a></li>
 				  </ul>
-				<?php } ?>
+
+				  <!-- Modal Structure edit -->
+  				<div id='editPost<?php echo md5($resultPost['postId'])?>' class="modal modal-fixed-footer">
+    				<div class="modal-content">
+      				<h4>Edit this post</h4>
+   						<div class="row">
+  							<form class="col s12" method="post" action='posts/update.php?id=<?php echo $resultPost['postId']?>'>
+    							<div class="row">
+      							<div class="input-field col s12 textarea">
+        							<textarea name="contentText" id="textarea1" value="this \n is a <br/> new \r line"><?php echo $resultPost['mainContent']; ?></textarea>
+      							</div>
+    							</div>
+							</div>
+    				</div>
+    				<div class="modal-footer">
+      				<button class="col offset-l4 l3 offset-s1 s6 black btn waves-effect waves-light" type="submit" name="action">
+       				 	Save changes
+         				<i class="material-icons right">send</i>
+       				</button>
+    				</div>
+    						</form>
+					  </div>
+									<?php } ?>
 				</div>
 				<div class="col s10">
 					published at: <?php echo date('d/m/Y H:i',strtotime($resultPost['created_at'])); ?>
@@ -256,6 +279,28 @@ while ($resultPost=mysqli_fetch_array($run)) {
 
   <!-- Modal Structure -->
   <div id="writePost" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Write a new post</h4>
+   		<div class="row">
+  			<form class="col s12" method="post" action="posts/create.php">
+    			<div class="row">
+      			<div class="input-field col s12 textarea">
+        			<textarea name="contentText" id="textarea1" value="this \n is a <br/> new \r line"></textarea>
+      			</div>
+    			</div>
+			</div>
+    </div>
+    <div class="modal-footer">
+      <button class="col offset-l4 l3 offset-s1 s6 black btn waves-effect waves-light" type="submit" name="action">
+        Publish
+         <i class="material-icons right">send</i>
+       </button>
+    </div>
+    		</form>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="editPost" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>Write a new post</h4>
    		<div class="row">
