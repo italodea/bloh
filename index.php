@@ -125,7 +125,7 @@ while ($resultPost=mysqli_fetch_array($run)) {
 ?>
 <div class="row">
 	<div class="col offset-l1 l10 s12">
-		<div class="card z-depth-2">
+		<div class="card z-depth-1">
 			<div class="row">
 				<div class="col l1 s2">
 					<img src='<?php echo "https://robohash.org/".$resultPost['name']."?set=set2" ; ?>' alt="" class="circle responsive-img">
@@ -148,7 +148,7 @@ while ($resultPost=mysqli_fetch_array($run)) {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col offset-m1 offset-s2 offset-l1 l10" style="background-color: red">
+				<div class="col offset-m1 offset-s2 offset-l1 l10">
 					<code>
 					<?php echo $resultPost['mainContent']; ?>
 					</code>	
@@ -270,8 +270,8 @@ while ($resultPost=mysqli_fetch_array($run)) {
     <div class="modal-footer">
       <button class="col offset-l4 l3 offset-s1 s6 black btn waves-effect waves-light" type="submit" name="action">
         Publish
-          <i class="material-icons right">send</i>
-        </button>
+         <i class="material-icons right">send</i>
+       </button>
     </div>
     		</form>
   </div>
@@ -289,7 +289,7 @@ while ($resultPost=mysqli_fetch_array($run)) {
 	document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, {
-    edge: 'right',
+    edge: 'left',
     draggable: true,
     inDuration: 250,
     outDuration: 200,
