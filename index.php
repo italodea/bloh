@@ -91,10 +91,9 @@
 	<nav class="black">
 	  <div class="nav-wrapper">
 	    <a href="#!" class="brand-logo">Logo</a>
-	    
-	    <ul class="right hide-on-med-and-down">
+	    <a href="#writePost" class="modal-trigger brand-logo right"><i class="material-icons">edit</i></a></li>
+	    <ul class="right hide-on-med-and-down" style="margin-right: 4%;">
 	      <li><a href="sass.html"><i class="material-icons">notifications_active</i></a></li>
-	      <li><a href="#writePost" class="modal-trigger"><i class="material-icons">edit</i></a></li>
 	      <!-- Dropdown Trigger -->
 	      <!-- <i class="fab fa-buromobelexperte"></i> -->
 	      <li><a class="dropdown-trigger" href="#!" data-target="menu"><i class="fas fa-th" ></i></a></li>
@@ -107,7 +106,6 @@
 <ul class="sidenav" id="mobile-demo">
     <li><a href="#!"><b><?php echo $_SESSION["name"]; ?></b></a></li>
     <li><a href="#!">Settings</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
     <li class="divider"></li>
     <li><a href="user/exit.php">Exit</a></li>
   </ul>
@@ -337,7 +335,7 @@ while ($resultPost=mysqli_fetch_array($run)) {
     edge: 'left',
     draggable: true,
     inDuration: 250,
-    outDuration: 200,
+    outDuration: 300,
     onOpenStart: null,
     onOpenEnd: null,
     onCloseStart: null,
