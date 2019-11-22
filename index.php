@@ -161,7 +161,7 @@ while ($resultPost=mysqli_fetch_array($run)) {
   							<form class="col s12" method="post" action='posts/update.php?id=<?php echo $resultPost['postId']?>'>
     							<div class="row">
       							<div class="input-field col s12 textarea">
-        							<textarea name="contentText" id="textarea1" value="this \n is a <br/> new \r line"><?php echo $resultPost['mainContent']; ?></textarea>
+        							<textarea name="contentText" id="textarea1"><?php echo str_replace(array("<br />"), "", $resultPost['mainContent'] ); ?></textarea>
       							</div>
     							</div>
 							</div>
