@@ -87,27 +87,28 @@
   <li class="divider"></li>
   <li><a href="user/exit.php">Exit</a></li>
 </ul>
+<ul id="menu1" class="dropdown-content">
+  <li><a href="#!"><?php echo $_SESSION["name"]; ?></a></li>
+  <li><a href="#!">Settings</a></li>
+  <li class="divider"></li>
+  <li><a href="user/exit.php">Exit</a></li>
+</ul>
 <div class="navbar-fixed hide-on-small-only hoverable">
 	<nav class="black">
 	  <div class="nav-wrapper">
-	    <a href="#!" class="brand-logo">Logo</a>
-	    <a href="#writePost" class="modal-trigger brand-logo right"><i class="material-icons">edit</i></a></li>
-	    <ul class="right hide-on-med-and-down" style="margin-right: 4%;">
+	    <a href="/" class="brand-logo">BLOH!</a>
+	    <ul class="right show-on-medium-and-up">
+	    	<li><a href="#writePost" class="modal-trigger"><i class="material-icons">edit</i></a></li>
 	      <li><a href="sass.html"><i class="material-icons">notifications_active</i></a></li>
 	      <!-- Dropdown Trigger -->
 	      <!-- <i class="fab fa-buromobelexperte"></i> -->
-	      <li><a class="dropdown-trigger" href="#!" data-target="menu"><i class="fas fa-th" ></i></a></li>
+	      <li><a class="dropdown-trigger" href="#!" data-target="menu1"><i class="fas fa-th" ></i></a></li>
 	    </ul>
 	    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 	  </div>
 	</nav>
 </div>
-<ul class="sidenav" id="mobile-demo">
-    <li><a href="#!"><b><?php echo $_SESSION["name"]; ?></b></a></li>
-    <li><a href="#!">Settings</a></li>
-    <li class="divider"></li>
-    <li><a href="user/exit.php">Exit</a></li>
-  </ul>
+
 <br><br><br>
 <div class="row">
 	<div class="col offset-m1 s12 m10">
@@ -352,24 +353,27 @@ while ($resultPost=mysqli_fetch_array($run)) {
 <script type = "text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
 <script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, {
-    edge: 'left',
-    draggable: true,
+  var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, {
+    alignment: 'left',
+    autoTrigger: true,
+    constrainWidth: false,
+    container: null,
+    coverTrigger: false,
+    closeOnClick: true,
+    hover : false,
     inDuration: 250,
     outDuration: 300,
     onOpenStart: null,
     onOpenEnd: null,
     onCloseStart: null,
-    onCloseEnd: null,
-    preventScrolling: true
+    onCloseEnd: null
 });
 });
 </script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".dropdown-trigger").dropdown();
 		$('.modal').modal();
 	})
 </script>
