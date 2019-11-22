@@ -66,7 +66,7 @@
 
         .m-b-md {
             margin-bottom: 30px;
-        }rea, textarea{
+        }area, textarea{
         	height: 220px;
         }
     </style>
@@ -87,7 +87,7 @@
   <li class="divider"></li>
   <li><a href="user/exit.php">Exit</a></li>
 </ul>
-<div class="navbar-fixed">
+<div class="navbar-fixed hide-on-small-only hoverable">
 	<nav class="black">
 	  <div class="nav-wrapper">
 	    <a href="#!" class="brand-logo">Logo</a>
@@ -101,7 +101,6 @@
 	    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 	  </div>
 	</nav>
-	P2VFTVDEAL
 </div>
 <ul class="sidenav" id="mobile-demo">
     <li><a href="#!"><b><?php echo $_SESSION["name"]; ?></b></a></li>
@@ -110,6 +109,18 @@
     <li><a href="user/exit.php">Exit</a></li>
   </ul>
 <br><br><br>
+<div class="row">
+	<div class="col offset-m1 s12 m10">
+	<div class="row">
+	<blockquote class="col s12 z-depth-1">		
+		<br>
+    <b>Note:</b> This is a beta version yet
+    <br>
+</blockquote>
+</div>
+</div>
+</div>
+
 <?php
 
 require('etc/connection.php');
@@ -188,6 +199,8 @@ while ($resultPost=mysqli_fetch_array($run)) {
 </div>
 
 <?php }; ?>
+
+<br><br><br>
 <!-- 
 <div class="row ">
 	<div class="col offset-l1 l10 s12 ">
@@ -227,7 +240,7 @@ while ($resultPost=mysqli_fetch_array($run)) {
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>	
 </div>
 <div class="row">
 	<div class="col offset-l1 l10 s12 ">
@@ -319,11 +332,20 @@ while ($resultPost=mysqli_fetch_array($run)) {
     		</form>
   </div>
 
+<div class="hide-on-med-and-up" style="position: fixed; width: 100%;bottom: 0;right: 0;height: 90px;">
 
-
-
-
-
+<div class="black">
+  <div class="container">
+  	<ul class="row">
+  		<br>
+  		<li class="col s1" style="margin-left: 5%"><center><a href="/" class="white-text"><i class="material-icons"><b>home</b></i><br>home</a></center></li>
+  		<li class="col s3" style="margin-left: 7%"><center><a  href="#writePost" class="modal-trigger white-text" class="white-text"><i class="material-icons">edit</i><br>new post hjfgsdjhgf</a></center></li>
+  		<li class="col s3" style="margin-left: 2%"><center><a href="" class="white-text"><i class="material-icons">notifications_active</i><br>notifications</a></center></li>
+  		<li class="col s2" style="margin-left: 5%"><a class="dropdown-trigger white-text" href="#!" data-target="menu"><i class="material-icons">menu</i><br>menu</a></li>
+  	</ul>
+  </div>
+</div>
+</div>
 
 <script type = "text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
