@@ -336,13 +336,13 @@ while ($resultPost=mysqli_fetch_array($run)) {
 
 <div class="hide-on-med-and-up" style="position: fixed; width: 100%;bottom: 0;right: 0;height: 90px;">
 
-<div class="black">
+<div class="black z-depth-5">
   <div class="container">
   	<ul class="row">
   		<br>
   		<li class="col s1" style="margin-left: 5%"><center><a href="/" class="white-text"><i class="material-icons"><b>home</b></i><br>home</a></center></li>
   		<li class="col s3" style="margin-left: 7%"><center><a  href="#writePost" class="modal-trigger white-text" class="white-text"><i class="material-icons">edit</i><br>new post hjfgsdjhgf</a></center></li>
-  		<li class="col s3" style="margin-left: 2%"><center><a href="" class="white-text"><i class="material-icons">notifications_active</i><br>notifications</a></center></li>
+  		<li class="col s3" style="margin-left: 2%"><center><a href="/notifications" class="white-text"><i class="material-icons">notifications_active</i><br>notifications</a></center></li>
   		<li class="col s2" style="margin-left: 5%"><a class="dropdown-trigger white-text" href="#!" data-target="menu"><i class="material-icons">menu</i><br>menu</a></li>
   	</ul>
   </div>
