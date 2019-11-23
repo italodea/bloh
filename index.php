@@ -14,7 +14,8 @@
    	<script src="https://kit.fontawesome.com/2ca0972b2c.js" crossorigin="anonymous"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
 	<!-- Styles -->
     <style>
         html, body {
@@ -82,18 +83,18 @@
 	?>
 	<!-- Dropdown Structure -->
 <ul id="menu" class="dropdown-content">
-  <li><a href="#!"><?php echo $_SESSION["name"]; ?></a></li>
-  <li><a href="#!">Settings</a></li>
+  <li><a href="" class="black-text"><?php echo $_SESSION["name"]; ?></a></li>
+  <li><a href="#!" class="black-text">Settings</a></li>
   <li class="divider"></li>
-  <li><a href="user/exit.php">Exit</a></li>
+  <li><a href="user/exit.php" class="red-text">Exit</a></li>
 </ul>
 <ul id="menu1" class="dropdown-content">
-  <li><a href="#!"><?php echo $_SESSION["name"]; ?></a></li>
-  <li><a href="#!">Settings</a></li>
+  <li><a href="" class="black-text"><?php echo $_SESSION["name"]; ?></a></li>
+  <li><a href="#!" class="black-text">Settings</a></li>
   <li class="divider"></li>
-  <li><a href="user/exit.php">Exit</a></li>
+  <li><a href="user/exit.php" class="red-text">Exit</a></li>
 </ul>
-<div class="navbar-fixed hide-on-small-only hoverable">
+<div class="navbar-fixed hide-on-small-only">
 	<nav class="black">
 	  <div class="nav-wrapper">
 	    <a href="/" class="brand-logo">BLOH!</a>
