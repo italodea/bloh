@@ -190,7 +190,7 @@ while ($resultPost=mysqli_fetch_array($run)) {
 			</div>
 			<div class="row">
 				<div class="col offset-s1" style="color: black;">
-  					&nbsp;&nbsp;&nbsp;<a href="#" class="black-text" onclick='like("<?php echo $resultPost['postId']?>")'><i class="material-icons tiny">favorite</i><a id='likePost<?php echo $resultPost['postId']?>'><?php echo $resultPost['likes']; ?></a></a>
+  					&nbsp;&nbsp;&nbsp;<a href="#!" class="black-text" onclick='like("<?php echo $resultPost['postId']?>")'><i class="material-icons tiny">favorite</i><a class="black-text" id='likePost<?php echo $resultPost['postId']?>'><?php echo $resultPost['likes']; ?></a></a>
 				</div>
 				<div class="col" style="color: black;">
   					&nbsp;&nbsp;&nbsp;<i class="material-icons tiny">mode_comment</i><?php echo $resultPost['comments']; ?>
@@ -389,8 +389,7 @@ function like(id){
   url : "/posts/likes.php",
   type: "POST",
   data : {id : id} , 
-  success: function(data, textStatus, jqXHR) { 
-    alert(data)
+  success: function(data, textStatus, jqXHR) {
     $('a#likePost'+id).text(data);
   },
   error: function (jqXHR, textStatus, errorThrown) {
