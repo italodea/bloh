@@ -289,15 +289,6 @@ while ($resultPost=mysqli_fetch_array($run)) {
 
  -->
 
-
-<button id="submit">
-  clique aqui
-</button>
-
-<button id="enviar">
-  CLIQUE AQUI
-</button>
-
   <!-- Modal Structure -->
   <div id="writePost" class="modal modal-fixed-footer">
     <div class="modal-content">
