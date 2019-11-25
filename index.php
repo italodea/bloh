@@ -110,7 +110,7 @@
 	</nav>
 </div>
 
-<br><br><br>
+<br>
 <div class="row">
 	<div class="col offset-m1 s12 m10">
 	<div class="row">
@@ -190,7 +190,7 @@ while ($resultPost=mysqli_fetch_array($run)) {
 			</div>
 			<div class="row">
 				<div class="col offset-s1" style="color: black;">
-  					&nbsp;&nbsp;&nbsp;<i class="material-icons tiny">favorite</i><?php echo $resultPost['likes']; ?>
+  					&nbsp;&nbsp;&nbsp;<a href="#" class="black-text" onclick='like("<?php echo $resultPost['postId']?>")'><i class="material-icons tiny">favorite</i><a id='likePost<?php echo $resultPost['postId']?>'><?php echo $resultPost['likes']; ?></a></a>
 				</div>
 				<div class="col" style="color: black;">
   					&nbsp;&nbsp;&nbsp;<i class="material-icons tiny">mode_comment</i><?php echo $resultPost['comments']; ?>
@@ -201,6 +201,8 @@ while ($resultPost=mysqli_fetch_array($run)) {
 </div>
 
 <?php }; ?>
+
+
 
 <br><br><br>
 <!-- 
@@ -288,7 +290,13 @@ while ($resultPost=mysqli_fetch_array($run)) {
  -->
 
 
+<button id="submit">
+  clique aqui
+</button>
 
+<button id="enviar">
+  CLIQUE AQUI
+</button>
 
   <!-- Modal Structure -->
   <div id="writePost" class="modal modal-fixed-footer">
@@ -371,6 +379,26 @@ while ($resultPost=mysqli_fetch_array($run)) {
     onCloseEnd: null
 });
 });
+</script>
+
+
+
+<script type="text/javascript">
+function like(id){
+  $.ajax({
+  url : "/posts/likes.php",
+  type: "POST",
+  data : {id : id} , 
+  success: function(data, textStatus, jqXHR) { 
+    alert(data)
+    $('a#likePost'+id).text(data);
+  },
+  error: function (jqXHR, textStatus, errorThrown) {
+      console.log(textStatus);// if there is an error
+    }
+
+  })
+};
 </script>
 
 <script type="text/javascript">
