@@ -21,6 +21,7 @@
   "homepage": "https://github.com/italodea/bloh#readme",
   "dependencies": {
     "jquery": "2.1.1",
+    "jquery-ui-dist": "^1.12.1",
     "materialize-css": "^1.0.0"
   }
 }
