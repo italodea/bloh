@@ -24,16 +24,16 @@ if (($varri = verifyData()) == True){
 		$_SESSION['name'] = $data['name'];
 		$_SESSION['lastName'] = $data['lastName'];
 		$_SESSION['email'] = $data['id'];
-		header("Location:/index.php");
+		echo "1";
 	}else{
 		unset ($_SESSION['id']);
   		unset ($_SESSION['name']);
   		unset ($_SESSION['lastName']);
   		unset ($_SESSION['email']);
-  		echo "email ou senha incorretos";
+  		echo 'email or password wrong';
 	}
 }else{
-	echo "erro!";
+	echo 'email or password empty';
 }
 
 ?>
