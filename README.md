@@ -1,5 +1,10 @@
 # BLOH!
 
+![GitHub](https://img.shields.io/github/license/italodea/bloh?style=plastic)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/italodea/bloh?style=plastic) 
+![GitHub stars](https://img.shields.io/github/stars/italodea/bloh?style=plastic)
+
+<br>
 Bloh de inicio era para ter sido um projetinho de blog, mas que aos poucos acabou se tornando algo mais próximo de  uma rede social. No inicio deveria ser feito usando laravel 6, mas que com PHP puro e algumas bibliotecas front-end ficou muito mais simples e rápido.
 
 
