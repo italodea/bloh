@@ -101,8 +101,10 @@
 	    <ul class="right show-on-medium-and-up">
 	    	<li><a href="#writePost" class="modal-trigger"><i class="material-icons">edit</i></a></li>
 	      <li><a href="sass.html"><i class="material-icons">notifications_active</i></a></li>
+	      <!-- Dropdown Trigger -->
+	      <!-- <i class="fab fa-buromobelexperte"></i> -->
+	      <li><a class="dropdown-trigger" href="#!" data-target="menu1"><i class="material-icons">apps</i></a></li>
 	    </ul>
-	    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 	  </div>
 	</nav>
 </div>
