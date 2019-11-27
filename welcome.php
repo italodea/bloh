@@ -121,56 +121,58 @@
 
 <div class="row" id="form-login">
   <div class="card col offset-l7 l4 s10 offset-s1" >
-    <br>
-    <form action="user/login.php" method="post">
+    <div class="row">
+      <div class="col offset-s2 s8 red white-text" id="alertsLogin" style="opacity: 0;">
+        <center><h6 id="alertsLoginText"></h6></center>
+      </div>
+    </div>
+    <!-- <form action="user/login.php" method="post"> -->
       <br>
     <div class="row">
       <div class="input-field col s10 l10 offset-s1 offset-l1">
-        <input placeholder="" name="email" type="email" class="validate" required="">
+        <input placeholder="" id="email" type="email" class="validate" required="">
         <label for="email">Email</label>
         <span class="helper-text" data-error="Wrong format" data-success="Ok"></span>
       </div>    
     </div>
     <div class="row">
       <div class="input-field col s10 l10 offset-s1 offset-l1">
-        <input placeholder="" name="password" type="password" class="validate" required="" minlength="8">
+        <input placeholder="" id="password" type="password" class="validate" required="" minlength="8">
         <label for="password">Password</label>
         <span class="helper-text" data-error="min 8 characters" data-success="Ok"></span>
       </div>
     </div>
     <div class="row">
       <a href="#" class="col s4 l3 offset-l1 red-text" id="register"><br>Register?</a>
-      <button class="col offset-l4 l3 offset-s1 s6 black btn waves-effect waves-light" type="submit" name="action">
+      <button class="col offset-l4 l3 offset-s1 s6 black btn waves-effect waves-light" onclick="login()" name="action">
         Login
-          <i class="material-icons right">send</i>
-        </button>
+        <i class="material-icons right">send</i>
+      </button>
     </div>
-    </form>
+    <!-- </form> -->
   </div>
 </div>
 
 
 
 
-
-
-
-
-
 <div class="row" id="form-register" style="opacity: 0;">
   <div class="card col offset-l5 l6 s10 offset-s1">
-    <br>
-    <form action="user/register.php" method="post">
+    <div class="row">
+      <div class="col offset-s2 s8 red white-text" id="alertsRegister" style="opacity: 0;">
+        <center><h6 id="alertsRegisterText"></h6></center>
+      </div>
+    </div>
     <div class="row">
       <div class="col s1 l1 input-field">
         <i class="material-icons prefix">person</i>
       </div>
           <div class="input-field col s10 l5">
-              <input placeholder="" name="firstName" type="text" required="">
+              <input placeholder="" id="firstName" type="text" required="">
               <label for="first_name">First name</label>
           </div>
           <div class="input-field col s10 offset-s1 l5">
-              <input placeholder="" name="lastName" type="text" class="validate" required="">
+              <input placeholder="" id="lastName" type="text" class="validate" required="">
               <label for="last_name">Last name</label>
           </div>
     </div>
@@ -179,30 +181,30 @@
         <i class="material-icons prefix">email</i>
       </div>
           <div class="input-field col s10 l10">
-              <input placeholder="" name="email" type="email" class="validate" required="">
+              <input placeholder="" id="emailRegister" type="email" class="validate" required="">
               <label for="email">Email</label>
               <span class="helper-text" data-error="Wrong format" data-success="Ok"></span>
           </div>
           <div class="input-field col s10 l10 offset-s1 offset-l1">
-              <input name="password" type="password" class="validate" required="" minlength="8">
+              <input id="passwordRegister" type="password" class="validate" required="" minlength="8">
               <label placeholder="" for="password">Password</label>
               <span class="helper-text" data-error="min 8 characters" data-success="Ok"></span>
           </div>
     </div>
     <div class="row">
       <a href="#" class="col s4 l2 offset-l1 red-text" id="login"><br>Login?</a>
-      <button class="col offset-l5 l3 offset-s1 s6 black btn waves-effect waves-light" type="submit" name="action">
+      <button class="col offset-l4 l3 offset-s1 s6 black btn waves-effect waves-light" onclick="register()" name="action">
         Register
-          <i class="material-icons right">send</i>
-        </button>
+        <i class="material-icons right">send</i>
+      </button>
     </div>
-    </form>
   </div>
 </div>
 
 <script type = "text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script type = "text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
+<script type = "text/javascript" src = "/node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 <script> 
 $(document).ready(function(){
   $("#form-register").hide();
@@ -221,5 +223,58 @@ $(document).ready(function(){
   });
 });
 </script> 
+
+
+<script type="text/javascript">
+function login(){
+  $.ajax({
+  url : "/user/login.php",
+  type: "POST",
+  data : {
+    email : $("#email").val(), 
+    password : $("#password").val()
+  } , 
+  success: function(data, textStatus, jqXHR) {
+    if (data == "1"){
+      window.location.href="/";;
+    }else{
+      $('div#alertsLogin').css('opacity','1');
+      $('h6#alertsLoginText').text(data);
+      $('div#alertsLogin').effect( "shake", {times:2}, 400 );
+    }
+  },
+  error: function (jqXHR, textStatus, errorThrown) {
+      console.log(textStatus);// if there is an error
+    }
+
+  })
+};
+function register(){
+  $.ajax({
+  url : "/user/register.php",
+  type: "POST",
+  data : {
+    firstName : $("#firstName").val(),
+    lastName : $("#lastName").val(),
+    email : $("#emailRegister").val(), 
+    password : $("#passwordRegister").val()
+  } , 
+  success: function(data, textStatus, jqXHR) {
+    if (data == "1"){
+      window.location.href="/";;
+    }else{
+      $('div#alertsRegister').css('opacity','1');
+      $('h6#alertsRegisterText').text(data);
+      $('div#alertsRegister').effect( "shake", {times:2}, 400 );
+    }
+  },
+  error: function (jqXHR, textStatus, errorThrown) {
+      console.log(textStatus);// if there is an error
+    }
+
+  })
+};
+</script>
+
 </body>
 </html>
