@@ -23,7 +23,9 @@ if (($varri = verifyData()) == True){
 	require('../etc/connection.php');
 	$string = "INSERT INTO users (`name`,`lastName`,`email`,`password`) values ('".$_POST['firstName']."','".$_POST['lastName']."','".$_POST['email']."','".md5($_POST['password'])."')";
 	mysqli_query($con,$string);
-	header("Location:/");
+	echo "1";
+}else{
+	echo "please fill in all required fields correctly.";
 }
 
 ?>
