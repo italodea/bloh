@@ -76,11 +76,22 @@
 
 </head>
 <body>
-	<?php session_start();
-		if (!$_SESSION['id']) {
-			header("Location:/welcome.php");
-		}
-	?>
+	<?php 
+    require('etc/connection.php');
+    session_start();
+    $query = 'select status from loginhistory where sessionName = "'.$_SESSION['token'].'" LIMIT 1;';
+    $run = mysqli_query($con,$query);
+    $data = mysqli_fetch_array($run);
+    if(mysqli_num_rows($run) == 1){
+      if ($data['status'] != 'active'){
+        header("Location:/user/exit.php");
+      }
+      else if (!$_SESSION['id']) {
+        header("Location:/user/exit.php");
+      }
+    }else{
+      header("Location:/user/exit.php");
+    }?>
 	<!-- Dropdown Structure -->
 <ul id="menu" class="dropdown-content">
   <li><a href="" class="black-text"><?php echo $_SESSION["name"]; ?></a></li>
@@ -124,7 +135,7 @@
 
 <?php
 
-require('etc/connection.php');
+
 $query = "SELECT DISTINCT(users.id),posts.id postId,posts.author, posts.mainContent,posts.likes,posts.comments,posts.created_at,users.name FROM `posts`,`users` WHERE users.id = posts.author ORDER BY posts.id DESC;";
 $run = mysqli_query($con,$query);
 

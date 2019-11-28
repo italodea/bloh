@@ -1,7 +1,5 @@
 <?php 
-define( 'SECURITY_HASH', 'nG+RnvEq3>rk<K2' );
 session_start();
-
 function verifyData(){
 	if( $_POST['email'] != ''){
 		if( $_POST['password'] != ''){
@@ -42,21 +40,21 @@ if (($varri = verifyData()) == True){
 	$data = mysqli_fetch_array($query);
 	
 	if (mysqli_num_rows($query) == 1) {
-		$query = 'INSERT INTO loginhistory(`ip`,`user`,`dateTime`) VALUES (INET_ATON("'. get_client_ip().'"),'.$data['id'].',NOW())';
-		$run = mysqli_query($con,$query);
+		
+		
 
 		$_SESSION['id'] = $data['id'];
 		$_SESSION['name'] = $data['name'];
 		$_SESSION['lastName'] = $data['lastName'];
 		$_SESSION['email'] = $data['id'];
-
-
+		$token = md5('bloh'.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT'].date('dd/F/yy h:i:s'));
+		$query = 'INSERT INTO loginhistory(`ip`,`user`,`status`,`sessionName`,`dateTime`) VALUES (INET_ATON("'. get_client_ip().'"),'.$data['id'].',"active","'.$token.'",NOW())';
+		$run = mysqli_query($con,$query);
+		$_SESSION['token'] = $token;
+		
 		echo "1";//sucess
 	}else{
-		unset ($_SESSION['id']);
-  		unset ($_SESSION['name']);
-  		unset ($_SESSION['lastName']);
-  		unset ($_SESSION['email']);
+		session_unset();
   		echo 'email or password wrong';
 	}
 }else{
