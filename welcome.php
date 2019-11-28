@@ -236,11 +236,15 @@ function login(){
   } , 
   success: function(data, textStatus, jqXHR) {
     if (data == "1"){
-      window.location.href="/";;
-    }else{
+      window.location.href="/";
+    }else if(data.match(/No connection could be made because the target machine actively refused it/)){
       $('div#alertsLogin').css('opacity','1');
-      $('h6#alertsLoginText').text(data);
+      $('h6#alertsLoginText').text("error establishing a database connection");
       $('div#alertsLogin').effect( "shake", {times:2}, 400 );
+    }else{
+      M.toast({html: data});
+      $('div#alertsLogin').css('opacity','0');
+      $('h6#alertsLoginText').text("");
     }
   },
   error: function (jqXHR, textStatus, errorThrown) {
@@ -261,11 +265,16 @@ function register(){
   } , 
   success: function(data, textStatus, jqXHR) {
     if (data == "1"){
-      window.location.href="/";;
-    }else{
+      window.location.href="/";
+    }else if(data.match(/No connection could be made because the target machine actively refused it/)){
       $('div#alertsRegister').css('opacity','1');
-      $('h6#alertsRegisterText').text(data);
+      $('h6#alertsRegisterText').text("error establishing a database connection");
       $('div#alertsRegister').effect( "shake", {times:2}, 400 );
+    }
+    else{
+      M.toast({html: data});
+      $('div#alertsRegister').css('opacity','0');
+      $('h6#alertsRegisterText').text("");
     }
   },
   error: function (jqXHR, textStatus, errorThrown) {
