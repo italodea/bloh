@@ -76,11 +76,10 @@
 
 </head>
 <body>
-	<?php session_start();
-		if (!$_SESSION['id']) {
-			header("Location:/welcome.php");
-		}
-	?>
+	<?php
+    require('etc/connection.php');
+    require('etc/session.php');
+  ?>
 	<!-- Dropdown Structure -->
 <ul id="menu" class="dropdown-content">
   <li><a href="" class="black-text"><?php echo $_SESSION["name"]; ?></a></li>
