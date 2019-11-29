@@ -77,7 +77,7 @@
 </head>
 <body>
 	<?php
-    require('etc/connection.php');
+    require('../etc/connection.php');
     require('etc/session.php');
   ?>
 	<!-- Dropdown Structure -->
@@ -132,28 +132,6 @@
   <div id="writePost" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>Write a new post</h4>
-   		<div class="row">
-  			<form class="col s12" method="post" action="posts/create.php">
-    			<div class="row">
-      			<div class="input-field col s12 textarea">
-        			<textarea name="contentText" id="textarea1"  required=""></textarea>
-      			</div>
-    			</div>
-			</div>
-    </div>
-    <div class="modal-footer">
-      <button class="col offset-l4 l3 offset-s1 s6 black btn waves-effect waves-light" type="submit" name="action">
-        Publish
-         <i class="material-icons right">send</i>
-       </button>
-    </div>
-    		</form>
-  </div>
-
-  <!-- Modal Structure -->
-  <div id="editPost" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Edit this post</h4>
    		<div class="row">
   			<form class="col s12" method="post" action="posts/create.php">
     			<div class="row">
