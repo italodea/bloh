@@ -1,6 +1,4 @@
 <?php 
-
-
 session_start();
 $query = 'select status from loginhistory where sessionName = "'.$_SESSION['token'].'" LIMIT 1;';
 $run = mysqli_query($con,$query);
