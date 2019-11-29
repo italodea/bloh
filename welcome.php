@@ -106,7 +106,7 @@
 <div class="navbar-fixed">
 	<nav class="black">
 	  <div class="nav-wrapper">
-	    <a href="#!" class="brand-logo">Logo</a>
+	    <a href="#!" class="brand-logo">BLOH!</a>
 	    <ul class="right hide-on-med-and-down">
 	      
 	    </ul>
