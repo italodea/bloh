@@ -83,13 +83,13 @@
 	<!-- Dropdown Structure -->
 <ul id="menu" class="dropdown-content">
   <li><a href="" class="black-text"><?php echo $_SESSION["name"]; ?></a></li>
-  <li><a href="#!" class="black-text">Settings</a></li>
+  <li><a href="/settings/" class="black-text">Settings</a></li>
   <li class="divider"></li>
   <li><a href="user/exit.php" class="red-text">Exit</a></li>
 </ul>
 <ul id="menu1" class="dropdown-content">
   <li><a href="" class="black-text"><?php echo $_SESSION["name"]; ?></a></li>
-  <li><a href="#!" class="black-text">Settings</a></li>
+  <li><a href="/settings/" class="black-text">Settings</a></li>
   <li class="divider"></li>
   <li><a href="user/exit.php" class="red-text">Exit</a></li>
 </ul>
