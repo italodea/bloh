@@ -16,69 +16,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-	<!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }area, textarea{
-        	height: 220px;
-        }
-    </style>
-
+	<link rel="stylesheet" type="text/css" href="/css/bloh.css">
 
 
 </head>
 <body>
 	<?php
     require('../etc/connection.php');
-    require('etc/session.php');
+    require('../etc/session.php');
   ?>
 	<!-- Dropdown Structure -->
 <ul id="menu" class="dropdown-content">
@@ -88,7 +33,7 @@
   <li><a href="user/exit.php" class="red-text">Exit</a></li>
 </ul>
 
-<br><br><br>
+
 <div class="row">
   <div class="col s12">
     <ul>
@@ -150,21 +95,23 @@
     		</form>
   </div>
 
-<div class="hide-on-med-and-up" style="position: fixed; width: 100%;bottom: 0;right: 0;height: 90px;">
+<?php if(!isset($_GET['bar'])){?>
+
+<div class="hide-on-med-and-up toolbar-mobile">
 
 <div class="black z-depth-5">
   <div class="container">
   	<ul class="row">
   		<br>
-  		<li class="col s1" style="margin-left: 5%"><center><a href="/" class="white-text"><i class="material-icons"><b>home</b></i><br>home</a></center></li>
-  		<li class="col s3" style="margin-left: 7%"><center><a  href="#writePost" class="modal-trigger white-text" class="white-text"><i class="material-icons">edit</i><br>new post hjfgsdjhgf</a></center></li>
-  		<li class="col s3" style="margin-left: 2%"><center><a href="/notifications" class="white-text"><i class="material-icons">notifications_active</i><br>notifications</a></center></li>
-  		<li class="col s2" style="margin-left: 5%"><a class="dropdown-trigger white-text" href="#!" data-target="menu"><i class="material-icons">menu</i><br>menu</a></li>
+  		<li class="col s1" id="item-1"><center><a href="/" class="white-text"><i class="material-icons"><b>home</b></i><br>home</a></center></li>
+  		<li class="col s3" id="item-2"><center><a  href="#writePost" class="modal-trigger white-text" class="white-text"><i class="material-icons">edit</i><br>new post hjfgsdjhgf</a></center></li>
+  		<li class="col s3" id="item-3"><center><a href="/notifications" class="white-text"><i class="material-icons">notifications_active</i><br>notifications</a></center></li>
+  		<li class="col s2" id="item-4"><a class="dropdown-trigger white-text" href="#!" data-target="menu"><i class="material-icons">menu</i><br>menu</a></li>
   	</ul>
   </div>
 </div>
 </div>
-
+<?php } ?>
 <script type = "text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script type = "text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script> 

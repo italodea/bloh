@@ -69,6 +69,8 @@
             margin-bottom: 30px;
         }area, textarea{
         	height: 220px;
+        }textarea {
+          resize: none;
         }
     </style>
 

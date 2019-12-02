@@ -14,82 +14,14 @@
    	<script src="https://kit.fontawesome.com/2ca0972b2c.js" crossorigin="anonymous"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-	<!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/bloh.css">
 
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }body {
-		  background-image: url('https://ojln9w.bl.files.1drv.com/y4mkI_zV8vfhbDEYtL-ilGSiyxiAVU-Pz10qVUcAnMzn_YFbltDywvoI2G7Nt3jRc238JsQLc8Y72z-lIyQfQhWqYbmKl__IzsYI1RAIAyhha6SGNRuS4O0-cgRHaTFpF37YilGXzKytcTF1i_xbFJpVLG2lqgfgaiD6u7ThCobUVfBJwhzZqDlF9YxLG7Y0Fvm4vb5sb-ZO-yqtBKhjMUCHw?width=1080&height=810&cropmode=none');
-		  background-position: center center;
-		  background-repeat: no-repeat;
-		  background-attachment: fixed;
-		  background-size: cover;
-		  background-color: #464646;
-		}
-
-		span {
-		  color: tomato;
-		  font-weight: bold;
-		  font-size: 2em;
-		  margin: 0;
-		  padding: 0;
-		  position: absolute;
-		  top: 50%;
-		}
-    </style>
 
 
 
 </head>
-<body>
+<body id="welcome">
   <?php session_start();
     if (isset($_SESSION['id'])) {
       header("Location:/");
@@ -122,7 +54,7 @@
 <div class="row" id="form-login">
   <div class="card col offset-l7 l4 s10 offset-s1" >
     <div class="row">
-      <div class="col offset-s2 s8 red white-text" id="alertsLogin" style="opacity: 0;">
+      <div class="col offset-s2 s8 red white-text" id="alertsLogin">
         <center><h6 id="alertsLoginText"></h6></center>
       </div>
     </div>
@@ -156,10 +88,10 @@
 
 
 
-<div class="row" id="form-register" style="opacity: 0;">
+<div class="row" id="form-register">
   <div class="card col offset-l5 l6 s10 offset-s1">
     <div class="row">
-      <div class="col offset-s2 s8 red white-text" id="alertsRegister" style="opacity: 0;">
+      <div class="col offset-s2 s8 red white-text" id="alertsRegister">
         <center><h6 id="alertsRegisterText"></h6></center>
       </div>
     </div>

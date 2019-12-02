@@ -15,62 +15,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-	<!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }area, textarea{
-        	height: 220px;
-        }
-    </style>
+  <link rel="stylesheet" type="text/css" href="/css/bloh.css">
 
 
 
@@ -93,13 +38,21 @@
   <li class="divider"></li>
   <li><a href="user/exit.php" class="red-text">Exit</a></li>
 </ul>
+<ul id='notificationCenter' class='dropdown-content'>
+  <li class="row">
+    <iframe src="notifications/index.php?bar=1" frameborder="0"></iframe>
+  </li>
+  <li class="divider"></li>
+
+</ul>
+
 <div class="navbar-fixed hide-on-small-only">
 	<nav class="black">
 	  <div class="nav-wrapper">
 	    <a href="/" class="brand-logo">BLOH!</a>
 	    <ul class="right show-on-medium-and-up">
 	    	<li><a href="#writePost" class="modal-trigger"><i class="material-icons">edit</i></a></li>
-	      <li><a href="sass.html"><i class="material-icons">notifications_active</i></a></li>
+	      <li><a class='dropdown-trigger' href="#!" data-target="notificationCenter"><i class="material-icons">notifications_active</i></a></li>
 	      <!-- Dropdown Trigger -->
 	      <!-- <i class="fab fa-buromobelexperte"></i> -->
 	      <li><a class="dropdown-trigger" href="#!" data-target="menu1"><i class="material-icons">apps</i></a></li>
@@ -187,10 +140,10 @@ while ($resultPost=mysqli_fetch_array($run)) {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col offset-s1" style="color: black;">
+				<div class="col offset-s1 black-text">
   					&nbsp;&nbsp;&nbsp;<a href="#!" class="black-text" onclick='like("<?php echo $resultPost['postId']?>")'><i class="material-icons tiny">favorite</i><a class="black-text" id='likePost<?php echo $resultPost['postId']?>'><?php echo $resultPost['likes']; ?></a></a>
 				</div>
-				<div class="col" style="color: black;">
+				<div class="col black-text">
   					&nbsp;&nbsp;&nbsp;<i class="material-icons tiny">mode_comment</i><?php echo $resultPost['comments']; ?>
 				</div>
 			</div>
@@ -331,17 +284,17 @@ while ($resultPost=mysqli_fetch_array($run)) {
     		</form>
   </div>
 
-<div class="hide-on-med-and-up" style="position: fixed; width: 100%;bottom: 0;right: 0;height: 90px;">
+<div class="hide-on-med-and-up toolbar-mobile">
 
 <div class="black z-depth-5">
   <div class="container">
-  	<ul class="row">
-  		<br>
-  		<li class="col s1" style="margin-left: 5%"><center><a href="/" class="white-text"><i class="material-icons"><b>home</b></i><br>home</a></center></li>
-  		<li class="col s3" style="margin-left: 7%"><center><a  href="#writePost" class="modal-trigger white-text" class="white-text"><i class="material-icons">edit</i><br>new post hjfgsdjhgf</a></center></li>
-  		<li class="col s3" style="margin-left: 2%"><center><a href="/notifications" class="white-text"><i class="material-icons">notifications_active</i><br>notifications</a></center></li>
-  		<li class="col s2" style="margin-left: 5%"><a class="dropdown-trigger white-text" href="#!" data-target="menu"><i class="material-icons">menu</i><br>menu</a></li>
-  	</ul>
+    <ul class="row">
+      <br>
+      <li class="col s1" id="item-1"><center><a href="/" class="white-text"><i class="material-icons"><b>home</b></i><br>home</a></center></li>
+      <li class="col s3" id="item-2"><center><a  href="#writePost" class="modal-trigger white-text" class="white-text"><i class="material-icons">edit</i><br>new post hjfgsdjhgf</a></center></li>
+      <li class="col s3" id="item-3"><center><a href="/notifications" class="white-text"><i class="material-icons">notifications_active</i><br>notifications</a></center></li>
+      <li class="col s2" id="item-4"><a class="dropdown-trigger white-text" href="#!" data-target="menu"><i class="material-icons">menu</i><br>menu</a></li>
+    </ul>
   </div>
 </div>
 </div>
