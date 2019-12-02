@@ -40,9 +40,8 @@
 </ul>
 <ul id='notificationCenter' class='dropdown-content'>
   <li class="row">
-    <iframe src="notifications/index.php?bar=1" frameborder="0"></iframe>
+    <iframe src="notifications/index.php?bar=1" id="frameNotifications" frameborder="0"></iframe>
   </li>
-  <li class="divider"></li>
 
 </ul>
 

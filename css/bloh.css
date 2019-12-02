@@ -60,7 +60,7 @@ textarea {
     padding: 0;
     position: absolute;
     top: 50%;
-}body #welcome{
+}body#welcome{
     background-image: url('https://ojln9w.bl.files.1drv.com/y4mkI_zV8vfhbDEYtL-ilGSiyxiAVU-Pz10qVUcAnMzn_YFbltDywvoI2G7Nt3jRc238JsQLc8Y72z-lIyQfQhWqYbmKl__IzsYI1RAIAyhha6SGNRuS4O0-cgRHaTFpF37YilGXzKytcTF1i_xbFJpVLG2lqgfgaiD6u7ThCobUVfBJwhzZqDlF9YxLG7Y0Fvm4vb5sb-ZO-yqtBKhjMUCHw?width=1080&height=810&cropmode=none');
     background-position: center center;
     background-repeat: no-repeat;
@@ -85,4 +85,11 @@ textarea {
     opacity: 0;
 }div #alertsRegister, div #alertsLogin{
     opacity: 0;
+}#notificationCenter{
+    height: 506px;
+    width: 306px;
+}
+#frameNotifications{
+    height: 480px;
+    width: 100%;
 }
