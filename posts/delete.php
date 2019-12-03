@@ -8,7 +8,7 @@
 	$run = mysqli_query($con,$sql);
 	echo $sql;
 	if ( mysqli_num_rows($run) == 1){
-		$sql = 'DELETE FROM likes where post = .$idPost.;'
+		$sql = 'DELETE FROM likes where post = .$idPost.;';
 		$run = mysqli_query($con,$sql);
 		
 		$sql = "DELETE FROM posts where id = ".$idPost.";";
