@@ -73,8 +73,9 @@
 </div>
 </div>
 
-<div id="get-list-view"></div>
-<div id="load-msg"></div>
+<div id="posts">
+	<?php require('posts/show.php');?>
+</div>
 
 <br><br><br>
 <!-- 
@@ -223,7 +224,6 @@
 <script type = "text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script type = "text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
-<script type="text/javascript" src="/js/paginationLoader.js"></script>
 <script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() {
 	  	var elems = document.querySelectorAll('.dropdown-trigger');
@@ -244,15 +244,7 @@
 		});
 	});
 </script>
-<script>
-    $(document).loadScrollData(0,{
-        limit       :   2,
-        listingId   :   "#get-list-view",
-        loadMsgId   :   '#load-msg',
-        ajaxUrl     :   'posts/show.php',
-        loadingMsg	:	'<center><div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>Loading more posts...</center>',
-    });
-</script>
+
 
 
 <script type="text/javascript">

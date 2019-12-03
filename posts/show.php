@@ -1,6 +1,4 @@
 <?php
-require('../etc/connection.php');
-require('../etc/session.php');
 
 $query = "SELECT DISTINCT(users.id),posts.id postId,posts.author, posts.mainContent,posts.likes,posts.comments,posts.created_at,users.name FROM `posts`,`users` WHERE users.id = posts.author ORDER BY posts.id DESC;";
 $run = mysqli_query($con,$query);
