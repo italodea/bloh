@@ -23,7 +23,12 @@ if (mysqli_num_rows($run) == 1){
 	return false;
 	
 }else{
-	$query = 'INSERT INTO likes(`user`,`post`,`dateTime`) VALUES('. $_SESSION['id'] .', '. $_POST['id'] .', NOW());';
+	$query = 'SELECT author from posts where `id`='. $_POST['id'] .';';
+	$run = mysqli_query($con,$query);
+
+	$author = mysqli_fetch_array($run);
+	
+	$query = 'INSERT INTO likes(`user`,`post`,`authorPost`,`dateTime`) VALUES('. $_SESSION['id'] .', '. $_POST['id'] .','.$author['author'].', NOW());';
 	$run = mysqli_query($con,$query);
 	
 	$query = 'SELECT count(*) from likes WHERE post = '. $_POST['id'] .'; ';
