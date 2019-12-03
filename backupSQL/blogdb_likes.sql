@@ -26,13 +26,16 @@ CREATE TABLE `likes` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user` bigint(20) unsigned NOT NULL,
   `post` bigint(20) unsigned NOT NULL,
+  `authorPost` bigint(20) unsigned NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user` (`user`),
   KEY `post` (`post`),
+  KEY `authorPost` (`authorPost`),
   CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`),
-  CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`post`) REFERENCES `posts` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`post`) REFERENCES `posts` (`id`),
+  CONSTRAINT `likes_ibfk_3` FOREIGN KEY (`authorPost`) REFERENCES `posts` (`author`)
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -44,4 +47,4 @@ CREATE TABLE `likes` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-25 22:46:36
+-- Dump completed on 2019-12-02 22:51:38
