@@ -22,11 +22,11 @@ while ($resultPost=mysqli_fetch_array($run)) {
 				</div>
 				<div class="col s1 l1">
 				<?php if($resultPost['author'] == $_SESSION['id']){  ?>
-					<a class='dropdown-trigger' href='#' data-target='postOptions<?php echo md5($resultPost['postId'])?>'><i class="material-icons blue-grey-text lighten-1">more_horiz</i></a>
+					<a class='dropdown-trigger' href='#!' data-target='postOptions<?php echo md5($resultPost['postId'])?>'><i class="material-icons blue-grey-text lighten-1">more_horiz</i></a>
 					
 					<!-- Dropdown Structure -->
 				  <ul id='postOptions<?php echo md5($resultPost['postId'])?>' class='dropdown-content'>
-				    <li><a href='#editPost<?php echo md5($resultPost['postId'])?>' class="modal-trigger black-text">edit</a></li>
+				    <li><a href='#editPost<?php echo md5($resultPost['postId'])?>' class='modal-trigger black-text'>edit</a></li>
 				    <li><a href='<?php echo "/posts/delete.php?id=".$resultPost['postId'];?>' class="red-text">remove</a></li>
 				  </ul>
 
