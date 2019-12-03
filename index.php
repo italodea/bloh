@@ -51,7 +51,7 @@
 	    <a href="/" class="brand-logo">BLOH!</a>
 	    <ul class="right show-on-medium-and-up">
 	    	<li><a href="#writePost" class="modal-trigger"><i class="material-icons">edit</i></a></li>
-	      <li><a class='dropdown-trigger' href="#!" data-target="notificationCenter"><i class="material-icons">notifications_active</i></a></li>
+	      <li><a class='dropdown-trigger' href="#!" id="notificationsButton" data-target="notificationCenter"><i class="material-icons">notifications_active</i></a></li>
 	      <!-- Dropdown Trigger -->
 	      <!-- <i class="fab fa-buromobelexperte"></i> -->
 	      <li><a class="dropdown-trigger" href="#!" data-target="menu1"><i class="material-icons">apps</i></a></li>
@@ -269,7 +269,7 @@ while ($resultPost=mysqli_fetch_array($run)) {
   			<form class="col s12" method="post" action="posts/create.php">
     			<div class="row">
       			<div class="input-field col s12 textarea">
-        			<textarea name="contentText" id="textarea1" value="this \n is a <br/> new \r line"></textarea>
+        			<textarea name="contentText" id="textarea1" value=""></textarea>
       			</div>
     			</div>
 			</div>
@@ -340,7 +340,12 @@ function like(id){
   })
 };
 </script>
-
+<script type="text/javascript">
+	$('#notificationsButton').click(function() {
+    	$('#frameNotifications')[0].contentWindow.location.reload(true);
+    	return false;
+	});
+</script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.modal').modal();

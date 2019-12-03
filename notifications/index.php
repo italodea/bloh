@@ -37,31 +37,28 @@
 <div class="row">
   <div class="col s12">
     <ul>
+      <?php
+        $query = 'SELECT likes.*,users.id userId, users.name, users.lastName, posts.id postId,posts.mainContent FROM blogdb.likes,blogdb.users,blogdb.posts where `authorPost` = '.$_SESSION['id'].' AND `user` != '.$_SESSION['id'].' AND users.id = `user` AND posts.id = `post` ORDER BY `dateTime` DESC LIMIT 20;
+';
+        $run = mysqli_query($con,$query);
+        while ($row=mysqli_fetch_array($run)) {
+    
+  
+      ?>
       <li class="row">
-        <div class="col s2"><img src="https://robohash.org/windows9?set=set2" alt="" class="circle responsive-img"></div>
-        <div class="col s8"><h6>Italo de azevedo say on your post:</h6><p class="truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-        <div class="col s1"><br><i class="material-icons black-text">comment</i></div>
-      </li>
-      <li class="divider"></li><br>
-      <li class="row">
-        <div class="col s2"><img src="https://robohash.org/ubuntu?set=set2" alt="" class="circle responsive-img"></div>
-        <div class="col s8"><h6>ubuntu da canonical é um linux liked on your post:</h6><p class="truncate">dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+        <div class="col s2"><img src='<?php echo "https://robohash.org/".$row['name']."?set=set2" ; ?>' alt="" class="circle responsive-img"></div>
+        <div class="col s8"><h6><?php echo $row['name'].' '.$row['lastName']; ?> liked your post:</h6>
+          <p class="truncate">
+            <?php
+              $row['mainContent'] = str_replace(array("<br />"), "", $row['mainContent']);
+              echo $row['mainContent'];
+            ?>
+          </p>
+        </div>
         <div class="col s1"><br><i class="material-icons black-text">favorite</i></div>
       </li>
       <li class="divider"></li><br>
-      <li class="row">
-        <div class="col s2"><img src="https://robohash.org/brasil?set=set2" alt="" class="circle responsive-img"></div>
-        <div class="col s8"><h6>brasil say on your post:</h6><p class="truncate">t occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-        <div class="col s1"><br><i class="material-icons black-text">comment</i></div>
-      </li>
+      <?php } ?>
     </ul>
   </div>
 </div>
