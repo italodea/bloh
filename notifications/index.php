@@ -75,7 +75,7 @@
     <div class="modal-content">
       <h4>Write a new post</h4>
    		<div class="row">
-  			<form class="col s12" method="post" action="posts/create.php">
+  			<form class="col s12" method="post" action="/posts/create.php">
     			<div class="row">
       			<div class="input-field col s12 textarea">
         			<textarea name="contentText" id="textarea1"  required=""></textarea>
