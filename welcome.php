@@ -137,85 +137,8 @@
 <!-- Compiled and minified JavaScript -->
 <script type = "text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
 <script type = "text/javascript" src = "/node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
-<script> 
-$(document).ready(function(){
-  $("#form-register").hide();
-  $("#login").click(function(){
-    $("#form-login").animate({opacity: '1'});
-    $("#form-login").fadeIn("slow");
-    $("#form-register").fadeOut(10);
-    $("#form-register").animate({opacity: '0'});
-
-  });
-  $("#register").click(function(){
-    $("#form-register").animate({opacity: '1'});
-    $("#form-register").fadeIn("slow");
-    $("#form-login").fadeOut(10);
-    $("#form-login").animate({opacity: '0'});
-  });
-});
-</script> 
-
-
-<script type="text/javascript">
-function login(){
-  $.ajax({
-  url : "/user/login.php",
-  type: "POST",
-  data : {
-    email : $("#email").val(), 
-    password : $("#password").val()
-  } , 
-  success: function(data, textStatus, jqXHR) {
-    if (data == "1"){
-      window.location.href="/";
-    }else if(data.match(/No connection could be made because the target machine actively refused it/)){
-      $('div#alertsLogin').css('opacity','1');
-      $('h6#alertsLoginText').text("error establishing a database connection");
-      $('div#alertsLogin').effect( "shake", {times:2}, 400 );
-    }else{
-      M.toast({html: data});
-      $('div#alertsLogin').css('opacity','0');
-      $('h6#alertsLoginText').text("");
-    }
-  },
-  error: function (jqXHR, textStatus, errorThrown) {
-      console.log(textStatus);// if there is an error
-    }
-
-  })
-};
-function register(){
-  $.ajax({
-  url : "/user/register.php",
-  type: "POST",
-  data : {
-    firstName : $("#firstName").val(),
-    lastName : $("#lastName").val(),
-    email : $("#emailRegister").val(), 
-    password : $("#passwordRegister").val()
-  } , 
-  success: function(data, textStatus, jqXHR) {
-    if (data == "1"){
-      window.location.href="/";
-    }else if(data.match(/No connection could be made because the target machine actively refused it/)){
-      $('div#alertsRegister').css('opacity','1');
-      $('h6#alertsRegisterText').text("error establishing a database connection");
-      $('div#alertsRegister').effect( "shake", {times:2}, 400 );
-    }
-    else{
-      M.toast({html: data});
-      $('div#alertsRegister').css('opacity','0');
-      $('h6#alertsRegisterText').text("");
-    }
-  },
-  error: function (jqXHR, textStatus, errorThrown) {
-      console.log(textStatus);// if there is an error
-    }
-
-  })
-};
-</script>
+<script type="text/javascript" src="/js/loginRegisterCard.js"></script> 
+<script type="text/javascript" src="/js/loginRegisterAjax.js"></script>
 
 </body>
 </html>

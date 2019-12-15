@@ -161,32 +161,9 @@
 
 <script type = "text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
-<script type = "text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
-<script type="text/javascript">
-	document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, {
-    alignment: 'left',
-    autoTrigger: true,
-    constrainWidth: false,
-    container: null,
-    coverTrigger: false,
-    closeOnClick: true,
-    hover : false,
-    inDuration: 250,
-    outDuration: 300,
-    onOpenStart: null,
-    onOpenEnd: null,
-    onCloseStart: null,
-    onCloseEnd: null
-});
-});
-</script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.modal').modal();
-		$('.collapsible').collapsible();
-	})
-</script>
+<script type="text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
+<script type="text/javascript" src="/js/dropdownConfigurator.js"></script>
+<script type="text/javascript" src="/js/modalConfigurator.js"></script>
+<script type="text/javascript" src="/js/collapsibleConfigurator.js"></script>
 </body>
 </html>
